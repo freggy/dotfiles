@@ -10,9 +10,10 @@ call plug#end()
  set t_Co=256
 
 " for vim 8
- if (has("termguicolors"))
-  set termguicolors
- endif
+"if (has("termguicolors"))
+"  set termguicolors
+" endif
+
 
 colorscheme OceanicNext
 
@@ -45,6 +46,8 @@ let g:go_auto_type_info = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_def_mapping_enabled = 0
+let g:go_auto_sameids = 1
+let g:go_rename_command ='gopls'
 
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
 
