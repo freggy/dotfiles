@@ -1,21 +1,19 @@
 call plug#begin()
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'mhartington/oceanic-next'
+Plug 'cocopon/iceberg.vim'
 call plug#end()
 
 " Theme
  syntax enable
 " for vim 7
- set t_Co=256
+" set t_Co=256
 
-" for vim 8
-"if (has("termguicolors"))
-"  set termguicolors
-" endif
+set paste
+set termguicolors
+colorscheme iceberg.vim
 
-
-colorscheme OceanicNext
+let g:lightline = { 'colorscheme': 'iceberg' }
 
 inoremap " ""<left>
 inoremap ' ''<left>
