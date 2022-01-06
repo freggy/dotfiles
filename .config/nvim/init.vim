@@ -2,18 +2,14 @@ call plug#begin()
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cocopon/iceberg.vim'
+Plug 'matze/vim-move'
 call plug#end()
 
-" Theme
- syntax enable
-" for vim 7
-" set t_Co=256
-
+syntax enable
 set paste
+set t_Co=256
 set termguicolors
-colorscheme iceberg.vim
-
-let g:lightline = { 'colorscheme': 'iceberg' }
+colorscheme iceberg
 
 inoremap " ""<left>
 inoremap ' ''<left>
@@ -25,6 +21,7 @@ inoremap {;<CR> {<CR>};<ESC>O
 
 set colorcolumn=120
 
+noremap <C-w> viw
 map <F3> :bnext<CR>
 map <F4> :bprevious<CR>
 
@@ -38,6 +35,8 @@ map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+let g:move_key_modifier = 'S'
 
 let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 1

@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/yannic/misc/personal-website/content/home/about.md'
+let g:netrw_dirhist_7='/home/yannic/.tmux'
+let g:netrw_dirhist_6='/home/yannic/misc/cpplua'
+let g:netrw_dirhist_5='/home/yannic/misc/cpplua/CMakeFiles'
+let g:netrw_dirhist_4='/home/yannic/misc/cpplua'
+let g:netrw_dirhist_3='/home/yannic/cow/instance-service/transport'
+let g:netrw_dirhist_2='/home/yannic/cow/instance-service'
+let g:netrw_dirhist_1='/home/yannic/cow/instance-service/transport'
+let g:netrw_dirhist_0='/home/yannic/cow/instance-service'
+let g:netrw_dirhist_9='/home/yannic/cow/instance-service/endpoint'
