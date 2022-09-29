@@ -5,5 +5,7 @@
       "rootPatterns": ["go.mod", ".git/", ".vim/"],
       "filetypes": ["go"]
     }
-  }
+  },
+  "rust.rust-client.enable": "true",
+  "clangd.path": "clangd-15"
 }
