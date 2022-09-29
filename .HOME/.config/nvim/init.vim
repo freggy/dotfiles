@@ -17,7 +17,6 @@ inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 set colorcolumn=120
-noremap <C-w> viw
 syntax enable
 set autowrite
 set number
