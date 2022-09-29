@@ -29,7 +29,7 @@ map <C-A> :bprev<CR>
 
 
 " -- EXPAND REGION PLUG STUFF BEGIN
-map <C-w> <Plug>(expand_region_expand)
+map <C-e> <Plug>(expand_region_expand)
 " -- EXPAND REGION PLUG STUFF END
 
 
