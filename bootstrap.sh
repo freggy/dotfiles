@@ -29,17 +29,24 @@ function install_progs_brew {
 	echo "install brew progs"
 }
 
-for dir in */
-do
-	if [ $dir == "__homedir/" ];
-	then
-		copy_files true
-		continue
-	fi
+function install_files {
+	for dir in */
+	do
+		if [ $dir == "__homedir/" ];
+		then
+			copy_files true
+			continue
+		fi
 
-	copy_files
-done
+		copy_files
+	done
+}
 
+# if --update do
+#   git pull
+#   install_files
+
+install_files
 install_base_progs
 install_progs_brew
 
