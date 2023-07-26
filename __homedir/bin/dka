@@ -1,0 +1,4 @@
+#!/bin/bash
+# convenient way to quickly erase all running containers
+docker kill $(docker ps -aq)
+docker rm $(docker ps -aq)
