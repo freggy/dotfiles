@@ -1,14 +1,39 @@
-Dotfiles
-========
+# Dotfiles
 
-This repository contains all configuration files and scripts needed to bootstrap my workspace and keep it up-to-date.
-The layout is simple: It's basically the standard linux directory structure. If I need a file at `/usr/local/bin` I 
-put it in `usr/local/bin` in the repositories root folder.
+This repository contains my configuration for my workstation and tooling to keep it up to date.
+All files are mapped from `rootfs` to `/` on the local filesystem.  
 
-Command overview
-----------------
+When setting up the workstation the first time do the following:
+```
+./bootstrap
+```
+this will install all prerequisites needed.
+
+## TODO 
+
+**Sync config**
 
 ```
-$ ./bootstrap.sh # inital bootstrap
-$ ./bootstrap.sh --update # fetch most recent files and update them
+df sync
 ```
+
+**Upgrade packages and config**
+```
+df upg
+```
+
+**Only update configs**
+```
+df up --cfg
+df up -c
+```
+
+**Update packages only**
+```
+df upgrade --pkg
+df upgrade -p
+```
+
+
+
+
