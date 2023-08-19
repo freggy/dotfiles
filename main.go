@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/freggy/dotfiles/cmd"
+	"github.com/freggy/dotfiles/internal/cmd"
 	"github.com/spf13/cobra"
 )
 

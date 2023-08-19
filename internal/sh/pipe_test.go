@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/freggy/dotfiles/sh"
+	sh2 "github.com/freggy/dotfiles/internal/sh"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -18,10 +18,10 @@ func TestPipe(t *testing.T) {
 			name: "simple pipe",
 			run: func(tt *testing.T) {
 				var (
-					echo = sh.Cmd("echo hello")
-					cat  = sh.Cmd("cat")
+					echo = sh2.Cmd("echo hello")
+					cat  = sh2.Cmd("cat")
 				)
-				pipe := sh.P().P(echo).P(cat)
+				pipe := sh2.P().P(echo).P(cat)
 				assert.NoError(tt, pipe.Err)
 
 				expected := "hello\n"
@@ -32,16 +32,16 @@ func TestPipe(t *testing.T) {
 			name: "into",
 			run: func(t *testing.T) {
 				var (
-					cat  = sh.Cmd("cat")
+					cat  = sh2.Cmd("cat")
 					file = fmt.Sprintf("%s/file", t.TempDir())
 				)
 
 				// echo hello | cat > %s/file
-				err := sh.P().P("echo hello").P(cat).Into(file)
+				err := sh2.P().P("echo hello").P(cat).Into(file)
 				assert.NoError(t, err)
 
 				// cat %s/file | cat
-				pipe := sh.P().P(cat.Append(file)).P(cat)
+				pipe := sh2.P().P(cat.Append(file)).P(cat)
 
 				expected := "hello\n"
 				assert.NoError(t, pipe.Err)
@@ -52,11 +52,11 @@ func TestPipe(t *testing.T) {
 			name: "check pipefail behavior",
 			run: func(t *testing.T) {
 				var (
-					cat  = sh.Cmd("cat")
+					cat  = sh2.Cmd("cat")
 					file = fmt.Sprintf("%s/file", t.TempDir())
 				)
 				// test | echo hello | cat > %s/file
-				err := sh.P().P("test").P("echo hello").P(cat).Into(file)
+				err := sh2.P().P("test").P("echo hello").P(cat).Into(file)
 				assert.Error(t, err)
 			},
 		},
