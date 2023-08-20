@@ -1,9 +1,10 @@
 package brew
 
 import (
+	"encoding/json"
+	"fmt"
 	"log"
 	"strings"
-	"sync"
 
 	"github.com/freggy/dotfiles/internal/cmd"
 	"github.com/freggy/dotfiles/internal/packages"
@@ -21,46 +22,74 @@ func syncc(state *packages.State) *cobra.Command {
 
 func brewSync(state *packages.State) cmd.RunEFunc {
 	return func(cmd *cobra.Command, args []string) (reterr error) {
-		brew := packages.Brew{}
-		// these commands take a while to complete,
-		// so run them in parallel.
-		wg := sync.WaitGroup{}
-		wg.Add(2)
-		go func() {
-			log.Println("syncing installed brew packages")
-			out, err := sh.Exec("brew leaves -r")
-			if err != nil {
-				reterr = err
-				return
-			}
-			for _, p := range list(out) {
-				brew.Packages = append(brew.Packages, p)
-			}
-			wg.Done()
-		}()
-		go func() {
-			log.Println("syncing installed casks")
-			out, err := sh.Exec("brew list -1 --casks")
-			if err != nil {
-				reterr = err
-				return
-			}
-			for _, c := range list(out) {
-				brew.Casks = append(brew.Casks, c)
-			}
-			wg.Done()
-		}()
-		wg.Wait()
-		if reterr != nil { // ???
-			return reterr
+		// In order to persist local package changes we need to do the following
+		// * git pull to retrieve the newest package state
+		//   if we do not do this we risk having inconsistencies
+		// * apply the new state
+
+		pkgs, err := installedBrewPackages()
+		if err != nil {
+			return fmt.Errorf("get installed brew packages: %w", err)
 		}
-		state.Brew.Update(brew)
-		log.Println(state)
-		return nil
-		//return state.Flush()
+
+		var remove []string
+		// find packages that are installed on the system,
+		// but not contained in the desired state. we want
+		// to uninstall these.
+		for _, actual := range pkgs {
+			found := false
+			for _, desired := range state.Brew.Packages {
+				if desired.Name == actual {
+					found = true
+					break
+				}
+			}
+			if !found {
+				// TODO: remove deleted entries from pkgs (use map?)
+				remove = append(remove, actual)
+			}
+		}
+
+		s := strings.Join(remove, " ")
+		log.Printf("removing brew packages %s\n", s)
+
+		if _, err := sh.ExecArgs("brew uninstall", s); err != nil {
+			return fmt.Errorf("uninstall brew packages: %w", err)
+		}
+
+		out, err := sh.Cmd("brew info --json").Append(pkgs...).Exec(nil)
+		if err != nil {
+			return err
+		}
+
+		var list []packages.BrewPackage
+		if err := json.Unmarshal(out, &list); err != nil {
+			return err
+		}
+
+		state.Brew.Update(packages.Brew{
+			Packages: list,
+		})
+		return state.Flush()
+		// TODO: commit and push changes
 	}
 }
 
+func installedBrewPackages() ([]string, error) {
+	out, err := sh.Exec("brew leaves -r")
+	if err != nil {
+		return nil, err
+	}
+	return list(out), nil
+}
+
 func list(in []byte) []string {
-	return strings.Split(string(in), "\n")
+	var l []string
+	for _, i := range strings.Split(string(in), "\n") {
+		if i == "" {
+			continue
+		}
+		l = append(l, i)
+	}
+	return l
 }
