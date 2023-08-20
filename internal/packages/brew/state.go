@@ -1,4 +1,4 @@
-package packages
+package brew
 
 import (
 	"slices"
@@ -6,11 +6,11 @@ import (
 	"github.com/freggy/dotfiles/internal/sh"
 )
 
-type Brew struct {
-	Packages []BrewPackage `json:"packages"`
+type State struct {
+	Packages []Package `json:"packages"`
 }
 
-type BrewPackage struct {
+type Package struct {
 	Name string `json:"name"`
 	Tap  string `json:"tap"`
 }
@@ -19,15 +19,15 @@ type BrewPackage struct {
 // the new brew state and the current one saved on disc.
 // If there are, the corresponding fields will be overridden
 // with the new ones. Members cannot be nil.
-func (b *Brew) Update(new Brew) {
+func (s *State) Update(new State) {
 	if new.Packages != nil &&
-		!slices.Equal(b.Packages, new.Packages) {
-		b.Packages = new.Packages
+		!slices.Equal(s.Packages, new.Packages) {
+		s.Packages = new.Packages
 	}
 }
 
-func (b *Brew) Apply() error {
-	for _, p := range b.Packages {
+func (s *State) Apply() error {
+	for _, p := range s.Packages {
 		if _, err := sh.ExecArgs("brew", "tap", p.Tap); err != nil {
 			return err
 		}

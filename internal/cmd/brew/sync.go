@@ -8,6 +8,7 @@ import (
 
 	"github.com/freggy/dotfiles/internal/cmd"
 	"github.com/freggy/dotfiles/internal/packages"
+	"github.com/freggy/dotfiles/internal/packages/brew"
 	"github.com/freggy/dotfiles/internal/sh"
 	"github.com/spf13/cobra"
 )
@@ -62,12 +63,12 @@ func brewSync(state *packages.State) cmd.RunEFunc {
 			return err
 		}
 
-		var list []packages.BrewPackage
+		var list []brew.Package
 		if err := json.Unmarshal(out, &list); err != nil {
 			return err
 		}
 
-		state.Brew.Update(packages.Brew{
+		state.Brew.Update(brew.State{
 			Packages: list,
 		})
 		return state.Flush()

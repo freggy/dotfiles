@@ -1,4 +1,4 @@
-package packages
+package brew
 
 import (
 	"testing"
@@ -9,48 +9,48 @@ import (
 func TestBrew(t *testing.T) {
 	tests := []struct {
 		name     string
-		current  Brew
-		new      Brew
-		expected Brew
+		current  State
+		new      State
+		expected State
 	}{
 		{
 			name: "do not update nil values",
-			current: Brew{
+			current: State{
 				Packages: []string{"abc"},
 				Casks:    []string{"def"},
 			},
-			new: Brew{},
-			expected: Brew{
+			new: State{},
+			expected: State{
 				Packages: []string{"abc"},
 				Casks:    []string{"def"},
 			},
 		},
 		{
 			name: "update both values",
-			current: Brew{
+			current: State{
 				Packages: []string{"abc"},
 				Casks:    []string{"def"},
 			},
-			new: Brew{
+			new: State{
 				Packages: []string{"abc", "123"},
 				Casks:    []string{"def", "456"},
 			},
-			expected: Brew{
+			expected: State{
 				Packages: []string{"abc", "123"},
 				Casks:    []string{"def", "456"},
 			},
 		},
 		{
 			name: "update empty values",
-			current: Brew{
+			current: State{
 				Packages: []string{"abc"},
 				Casks:    []string{"def"},
 			},
-			new: Brew{
+			new: State{
 				Packages: []string{"abc"},
 				Casks:    []string{""},
 			},
-			expected: Brew{
+			expected: State{
 				Packages: []string{"abc"},
 				Casks:    []string{""},
 			},

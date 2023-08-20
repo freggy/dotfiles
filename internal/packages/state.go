@@ -8,14 +8,17 @@ import (
 	"os"
 	"os/exec"
 
+	"github.com/freggy/dotfiles/internal/packages/brew"
 	"github.com/freggy/dotfiles/internal/sh"
 )
+
+// TODO: rename(?)
 
 // State holds all information about packages
 // that should be installed across different
 // package managers
 type State struct {
-	Brew Brew `json:"brew"`
+	Brew brew.State `json:"brew"`
 
 	stateFile string
 }
