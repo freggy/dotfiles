@@ -46,12 +46,12 @@ func apply(config Config, opts *applyOpts) RunEFunc {
 				return fmt.Errorf("apply state: %w", err)
 			}
 		}
-		return copyFiles(config.HomeDir)
+		return copyFiles(config.InstallDir+"/dof/rootfs", config.HomeDir)
 	}
 }
 
-func copyFiles(homedir string) error {
-	return fs.WalkDir(rootfs.FS, ".", func(path string, d fs.DirEntry, err error) error {
+func copyFiles(root string, homedir string) error {
+	return filepath.WalkDir(root, func(path string, d fs.DirEntry, err error) error {
 		// we are only interested in files
 		if d.IsDir() {
 			return nil

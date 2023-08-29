@@ -71,8 +71,14 @@ func brewSync(state *packages.State) cmd.RunEFunc {
 		state.Brew.Update(brew.State{
 			Packages: list,
 		})
-		return state.Flush()
-		// TODO: commit and push changes
+
+		if err := state.Flush(); err != nil {
+			return fmt.Errorf("flush state: %w", err)
+		}
+
+		// TODO: git add . && git commit && git push
+
+		return nil
 	}
 }
 
