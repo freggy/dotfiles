@@ -7,6 +7,8 @@ import (
 
 type RunEFunc func(cmd *cobra.Command, args []string) error
 
+// TODO: populate fields
+
 type Config struct {
 	PackageState *packages.State
 	InstallDir   string

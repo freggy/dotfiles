@@ -11,7 +11,6 @@ import (
 	"strings"
 
 	"github.com/freggy/dotfiles/internal/sh"
-	"github.com/freggy/dotfiles/rootfs"
 	"github.com/spf13/cobra"
 )
 
@@ -36,7 +35,7 @@ func apply(config Config, opts *applyOpts) RunEFunc {
 	return func(cmd *cobra.Command, args []string) error {
 		if opts.Pull {
 			log.Println("pulling new updates from remote")
-			if _, err := sh.ExecArgs("git", "-C", config.InstallDir+"/dof", "pull"); err != nil {
+			if _, err := sh.ExecArgs("git", "-C", config.InstallDir+"/dotfiles", "pull"); err != nil {
 				return fmt.Errorf("git pull: %w", err)
 			}
 		}
@@ -46,7 +45,7 @@ func apply(config Config, opts *applyOpts) RunEFunc {
 				return fmt.Errorf("apply state: %w", err)
 			}
 		}
-		return copyFiles(config.InstallDir+"/dof/rootfs", config.HomeDir)
+		return copyFiles(config.InstallDir+"/dotfiles/rootfs", config.HomeDir)
 	}
 }
 
@@ -70,7 +69,7 @@ func copyFiles(root string, homedir string) error {
 		if err != nil {
 			return fmt.Errorf("open: %w", err)
 		}
-		data, err := rootfs.FS.ReadFile(path)
+		data, err := os.ReadFile(path)
 		if err != nil {
 			return fmt.Errorf("fs read: %w", err)
 		}
