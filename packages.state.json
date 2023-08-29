@@ -1,0 +1,60 @@
+{
+  "brew": {
+    "packages": [
+      {
+        "name": "docker"
+      },
+      {
+        "name": "docker-compose"
+      },
+      {
+        "name": "git-lfs"
+      },
+      {
+        "name": "gnu-tar"
+      },
+      {
+        "name": "gnupg"
+      },
+      {
+        "name": "hcloud"
+      },
+      {
+        "name": "helm"
+      },
+      {
+        "name": "int128/kubelogin/kubelogin"
+      },
+      {
+        "name": "jq"
+      },
+      {
+        "name": "kind"
+      },
+      {
+        "name": "kubectx"
+      },
+      {
+        "name": "libpq"
+      },
+      {
+        "name": "mtr"
+      },
+      {
+        "name": "neovim"
+      },
+      {
+        "name": "sops"
+      },
+      {
+        "name": "tmate"
+      },
+      {
+        "name": "tmux"
+      },
+      {
+        "name": "wget"
+      }
+    ]
+  }
+}
