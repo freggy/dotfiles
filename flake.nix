@@ -49,8 +49,8 @@
           pkgs.mtr
 
           # gui apps
-          #pkgs.jetbrains.goland
-          #pkgs.jetbrains.idea-community
+          pkgs.jetbrains.goland
+          pkgs.jetbrains.idea-community
           pkgs.alacritty
 
           # misc
