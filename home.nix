@@ -20,4 +20,12 @@ in
         user.signingkey = "DFEC74EA9AB2B963";
       };
     };
+    programs.alacritty = {
+      enable = true;
+      settings = {
+        font = {
+          size = 13;
+        };
+      };
+    };
   }
