@@ -47,6 +47,7 @@
           pkgs.direnv
           pkgs.age
           pkgs.mtr
+          pkgs.gnupg
 
           # langs
           pkgs.go
