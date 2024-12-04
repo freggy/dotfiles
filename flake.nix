@@ -48,6 +48,9 @@
           pkgs.age
           pkgs.mtr
 
+          # langs
+          pkgs.go
+
           # gui apps
           pkgs.jetbrains.goland
           pkgs.jetbrains.idea-community
@@ -90,6 +93,11 @@
         cd = "z"; # zoxide
         ll = "ls -la";
         vim = "nvim";
+      };
+
+      environment.variables = {
+        GOROOT = "$(go env GOROOT)";
+        GOPATH = "$(go env GOPATH)";
       };
 
       system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
