@@ -119,4 +119,5 @@ if [ -f ~/.zsh_aliases ]; then
 fi
 
 EDITOR=nvim
+source <(fzf --zsh)
 eval "$(zoxide init zsh)"
