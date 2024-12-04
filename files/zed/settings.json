@@ -3,5 +3,9 @@
     "mode": "light",
     "light": "One Light",
     "dark": "One Dark"
+  },
+  "auto_install_extensions": {
+    "dockerfile": true,
+    "docker-compose": true
   }
 }
