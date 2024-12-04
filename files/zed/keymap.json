@@ -1,0 +1,9 @@
+[
+  {
+    "bindings": {
+      "cmd-w": "editor::SelectLargerSyntaxNode", // expand selection
+      "cmd-q": "editor::SelectSmallerSyntaxNode", // shrink selection
+      "cmd-d": "editor::DuplicateLineDown" // copy current line to the next
+    }
+  }
+]
