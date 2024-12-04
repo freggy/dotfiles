@@ -3,7 +3,8 @@
     "bindings": {
       "cmd-w": "editor::SelectLargerSyntaxNode", // expand selection
       "cmd-q": "editor::SelectSmallerSyntaxNode", // shrink selection
-      "cmd-d": "editor::DuplicateLineDown" // copy current line to the next
+      "cmd-d": "editor::DuplicateLineDown", // copy current line to the next
+      "shift shift": "file_finder::Toggle" // file search
     }
   }
 ]
