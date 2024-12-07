@@ -7,3 +7,4 @@ alias vim="nvim"
 alias gdf='tmux split-window \; send-keys "git diff; exit" C-m \'
 alias gdfc='tmux split-window \; send-keys "git diff --cached; exit" C-m \'
 alias gce='git commit --edit'
+alias gc='git commit'

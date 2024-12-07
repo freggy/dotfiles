@@ -121,3 +121,5 @@ fi
 EDITOR=nvim
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
+
+if [ "$TMUX" = "" ]; then tmux; fi
