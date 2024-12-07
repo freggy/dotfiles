@@ -90,15 +90,6 @@
         };
       };
 
-      environment.shellAliases = {
-        tf = "tofu";
-        k = "kubectl";
-        kx = "kubectx";
-        cd = "z"; # zoxide
-        ll = "ls -la";
-        vim = "nvim";
-      };
-
       environment.variables = {
         GOROOT = "$(go env GOROOT)";
         GOPATH = "$(go env GOPATH)";

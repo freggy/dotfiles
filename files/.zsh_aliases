@@ -1,0 +1,6 @@
+alias tf="tofu";
+alias k="kubectl";
+alias kx="kubectx";
+alias cd="z"; # zoxide
+alias ll="ls -la"
+alias vim="nvim"
