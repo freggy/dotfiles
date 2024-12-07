@@ -17,7 +17,7 @@ in
       lfs.enable = true;
       extraConfig = {
         commit.gpgsign = true;
-        user.signingkey = "DFEC74EA9AB2B963";
+        user.signingkey = "A4F2D129";
       };
     };
     programs.alacritty = {

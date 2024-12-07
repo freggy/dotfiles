@@ -8,7 +8,8 @@
   },
   "auto_install_extensions": {
     "dockerfile": true,
-    "docker-compose": true
+    "docker-compose": true,
+    "nix": true
   },
   "autosave": {
     "after_delay": {

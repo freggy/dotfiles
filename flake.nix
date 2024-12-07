@@ -48,6 +48,9 @@
           pkgs.age
           pkgs.mtr
           pkgs.gnupg
+          pkgs.yubikey-manager
+          pkgs.yubico-pam
+          pkgs.yubikey-personalization
 
           # langs
           pkgs.go
@@ -145,8 +148,6 @@
     };
   in
   {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#simple
     darwinConfigurations."personal" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
