@@ -9,6 +9,7 @@ in
     home.file.".tmux.conf".source = "${files}/.tmux.conf";
     home.file.".zshrc".source = "${files}/.zshrc";
     home.file.".zsh_aliases".source = "${files}/.zsh_aliases";
+    home.file.".zsh_variables".source = "${files}/.zsh_variables";
     home.file.".config/zed/settings.json".source = "${files}/zed/settings.json";
     home.file.".config/zed/keymap.json".source = "${files}/zed/keymap.json";
     programs.git = {

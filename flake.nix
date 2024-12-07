@@ -90,11 +90,6 @@
         };
       };
 
-      environment.variables = {
-        GOROOT = "$(go env GOROOT)";
-        GOPATH = "$(go env GOPATH)";
-      };
-
       system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
 
       users.users.yannic = {
