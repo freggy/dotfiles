@@ -21,6 +21,7 @@ in
         commit.gpgsign = true;
         # yubikey 29-124-674
         user.signingkey = "A4F2D129FCD88C5EFB6D64767FF0A945E1587BF4";
+        push.autoSetupRemote = true;
       };
     };
     programs.alacritty = {
