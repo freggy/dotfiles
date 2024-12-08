@@ -51,6 +51,8 @@
           pkgs.yubikey-manager
           pkgs.yubico-pam
           pkgs.yubikey-personalization
+          pkgs.protobuf
+          pkgs.buf
 
           # langs
           pkgs.go
