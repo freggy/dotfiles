@@ -53,6 +53,7 @@
           pkgs.yubikey-personalization
           pkgs.protobuf
           pkgs.buf
+          pkgs.tmate
 
           # langs
           pkgs.go
