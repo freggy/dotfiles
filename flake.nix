@@ -55,6 +55,8 @@
           pkgs.buf
           pkgs.tmate
           pkgs.colima
+          pkgs.docker
+          pkgs.golangci-lint
 
           # langs
           pkgs.go
