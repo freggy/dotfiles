@@ -54,6 +54,7 @@
           pkgs.protobuf
           pkgs.buf
           pkgs.tmate
+          pkgs.colima
 
           # langs
           pkgs.go
