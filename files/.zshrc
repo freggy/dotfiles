@@ -122,4 +122,8 @@ EDITOR=nvim
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 
+bindkey -e
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
+
 if [ "$TMUX" = "" ]; then tmux; fi
