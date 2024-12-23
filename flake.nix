@@ -65,6 +65,7 @@
           pkgs.jetbrains.goland
           pkgs.jetbrains.idea-community
           pkgs.alacritty
+          pkgs.wireshark
 
           # misc
           pkgs.mkalias
