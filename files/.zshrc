@@ -121,6 +121,7 @@ fi
 EDITOR=nvim
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
+eval "$(direnv hook zsh)"
 
 bindkey -e
 bindkey '^[[1;3C' forward-word

@@ -9,3 +9,5 @@ alias gdc='git diff --cached'
 alias gds='tmux split-window \; send-keys "git diff; exit" C-m \'
 alias gdcs='tmux split-window \; send-keys "git diff --cached; exit" C-m \'
 alias gce='git commit -v --edit'
+alias xc='limactl shell xcomp'
+
