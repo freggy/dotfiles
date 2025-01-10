@@ -57,6 +57,7 @@
           pkgs.colima
           pkgs.docker
           pkgs.golangci-lint
+          pkgs.ffmpeg-full
 
           # langs
           pkgs.go
