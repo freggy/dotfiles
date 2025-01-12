@@ -85,6 +85,7 @@
           "mas"
           "fzf"
           "zoxide"
+          "openjdk@21"
         ];
         casks = [
           "google-chrome"
