@@ -4,6 +4,7 @@ alias kx="kubectx";
 alias cd="z"; # zoxide
 alias ll="ls -la"
 alias vim="nvim"
+alias gs='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gds='tmux split-window \; send-keys "git diff; exit" C-m \'
