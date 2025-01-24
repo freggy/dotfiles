@@ -92,6 +92,7 @@
           "bitwarden"
           "discord"
           "zed"
+          "postico"
         ];
         masApps = {
           "Magnet" = 441258766;
