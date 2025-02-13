@@ -58,6 +58,8 @@
           pkgs.docker
           pkgs.golangci-lint
           pkgs.ffmpeg-full
+          pkgs.dbmate
+          pkgs.sqlc
 
           # langs
           pkgs.go
