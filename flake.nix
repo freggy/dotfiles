@@ -60,6 +60,7 @@
           pkgs.ffmpeg-full
           pkgs.dbmate
           pkgs.sqlc
+          pkgs.postgresql
 
           # langs
           pkgs.go
