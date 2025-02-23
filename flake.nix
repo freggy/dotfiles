@@ -63,7 +63,7 @@
           pkgs.postgresql
 
           # langs
-          pkgs.go
+          pkgs.go_1_24
 
           # gui apps
           pkgs.jetbrains.goland
