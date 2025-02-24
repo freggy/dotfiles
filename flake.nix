@@ -61,6 +61,7 @@
           pkgs.dbmate
           pkgs.sqlc
           pkgs.postgresql
+          pkgs.scdl
 
           # langs
           pkgs.go_1_24
