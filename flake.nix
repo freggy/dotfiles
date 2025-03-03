@@ -71,6 +71,7 @@
           pkgs.jetbrains.idea-community
           pkgs.alacritty
           pkgs.wireshark
+          pkgs.obsidian
 
           # misc
           pkgs.mkalias
