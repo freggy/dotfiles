@@ -62,6 +62,7 @@
           pkgs.sqlc
           pkgs.postgresql
           pkgs.scdl
+	  pkgs.k9s
 
           # langs
           pkgs.go_1_24
