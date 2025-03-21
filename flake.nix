@@ -5,7 +5,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    #nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    nix-homebrew.url = "git+https://github.com/zhaofengli/nix-homebrew?ref=refs/pull/71/merge";
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
@@ -62,7 +63,7 @@
           pkgs.sqlc
           pkgs.postgresql
           pkgs.scdl
-	  pkgs.k9s
+	        pkgs.k9s
 
           # langs
           pkgs.go_1_24
