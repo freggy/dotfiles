@@ -63,6 +63,7 @@
           pkgs.postgresql
           pkgs.scdl
 	        pkgs.k9s
+					pkgs.packer
 
           # langs
           pkgs.go_1_24
