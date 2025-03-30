@@ -9,7 +9,8 @@
   "auto_install_extensions": {
     "dockerfile": true,
     "docker-compose": true,
-    "nix": true
+    "nix": true,
+    "terraform": true
   },
   "autosave": {
     "after_delay": {
