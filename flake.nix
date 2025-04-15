@@ -62,9 +62,10 @@
           pkgs.sqlc
           pkgs.postgresql
           pkgs.scdl
-	  pkgs.k9s
+	        pkgs.k9s
           pkgs.packer
           pkgs.minio-client
+          pkgs.yq
 
           # langs
           pkgs.go_1_24
