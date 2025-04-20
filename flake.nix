@@ -66,6 +66,7 @@
           pkgs.packer
           pkgs.minio-client
           pkgs.yq
+          pkgs.grpcurl
 
           # langs
           pkgs.go_1_24
