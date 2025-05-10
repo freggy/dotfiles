@@ -98,6 +98,7 @@
           "fzf"
           "zoxide"
           "openjdk@21"
+          "openssl@3"
         ];
         casks = [
           "google-chrome"
