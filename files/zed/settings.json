@@ -11,7 +11,8 @@
     "docker-compose": true,
     "nix": true,
     "terraform": true,
-    "toml": true
+    "toml": true,
+    "lua": true
   },
   "autosave": {
     "after_delay": {
