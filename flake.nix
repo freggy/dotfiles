@@ -67,9 +67,11 @@
           pkgs.minio-client
           pkgs.yq
           pkgs.grpcurl
+          pkgs.luajitPackages.luarocks
 
           # langs
           pkgs.go_1_24
+          pkgs.luajit
 
           # gui apps
           pkgs.jetbrains.goland
