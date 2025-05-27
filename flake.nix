@@ -113,6 +113,7 @@
         };
       };
 
+      system.primaryUser = "yannic";
       system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
       system.defaults.dock.mineffect = "scale";
 
