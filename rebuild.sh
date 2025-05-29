@@ -1,2 +1,2 @@
 #!/bin/bash
-darwin-rebuild switch --flake ~/proj/dotfiles#personal --impure
+sudo darwin-rebuild switch --flake ~/proj/dotfiles#personal --impure
