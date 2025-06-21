@@ -68,6 +68,7 @@
           pkgs.yq
           pkgs.grpcurl
           pkgs.luajitPackages.luarocks
+          pkgs.buildah
 
           # langs
           pkgs.go_1_24
