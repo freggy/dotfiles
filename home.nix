@@ -7,9 +7,6 @@ in
     programs.home-manager.enable = true;
     home.stateVersion = "24.11";
     home.file.".tmux.conf".source = "${files}/.tmux.conf";
-    home.file.".zshrc".source = "${files}/.zshrc";
-    home.file.".zsh_aliases".source = "${files}/.zsh_aliases";
-    home.file.".zsh_variables".source = "${files}/.zsh_variables";
     home.file.".config/zed/settings.json".source = "${files}/zed/settings.json";
     home.file.".config/zed/keymap.json".source = "${files}/zed/keymap.json";
     programs.git = {
@@ -34,8 +31,53 @@ in
     };
     programs.neovim = {
       enable = true;
+      # set clipboard+=unnamedplus makes system clipboard available to neovim
       extraConfig = ''
         set clipboard+=unnamedplus
+      '';
+    };
+    programs.direnv = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    programs.zsh = {
+      enable = true;
+      oh-my-zsh = {
+        enable = true;
+        plugins = ["git"];
+        theme = "afowler";
+      };
+      shellAliases = {
+        tf = "tofu";
+        k = "kubectl";
+        kx = "kubectx";
+        cd = "z"; # zoxide
+        ll = "ls -la";
+        vim = "nvim";
+        gs = "git status";
+        gd = "git diff";
+        gdc = "git diff --cached";
+        gce = "git commit -v --edit";
+        xc = "limactl shell xcomp";
+      };
+      initContent = ''
+        export GOROOT=$(go env GOROOT)
+        export GOPATH=$(go env GOPATH)
+        export GOBIN=$GOPATH/bin
+        export GIT_EDITOR=nvim
+        export PATH=$PATH:$GOBIN
+        export LANG=en_US
+
+        EDITOR=nvim
+        source <(fzf --zsh)
+        eval "$(zoxide init zsh)"
+        eval "$(direnv hook zsh)"
+
+        bindkey -e
+        bindkey '^[[1;3C' forward-word
+        bindkey '^[[1;3D' backward-word
+
+        if [ "$TMUX" = "" ]; then tmux; fi
       '';
     };
   }

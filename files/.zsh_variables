@@ -1,6 +1,0 @@
-export GOROOT="$(go env GOROOT)"
-export GOPATH="$(go env GOPATH)"
-export GOBIN="$GOPATH/bin"
-export GIT_EDITOR=nvim
-export PATH="$PATH:$GOBIN"
-export LANG=en_US
