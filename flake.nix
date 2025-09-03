@@ -69,9 +69,11 @@
           pkgs.grpcurl
           pkgs.luajitPackages.luarocks
           pkgs.buildah
+          pkgs.gradle
+          pkgs.aptly
 
           # langs
-          pkgs.go_1_24
+          pkgs.go_1_25
           pkgs.luajit
 
           # gui apps
