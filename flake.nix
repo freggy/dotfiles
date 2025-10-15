@@ -68,7 +68,6 @@
           pkgs.yq
           pkgs.grpcurl
           pkgs.luajitPackages.luarocks
-          pkgs.buildah
           pkgs.gradle
           pkgs.aptly
 
