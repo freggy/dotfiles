@@ -81,6 +81,7 @@
           pkgs.alacritty
           pkgs.wireshark
           pkgs.obsidian
+          pkgs.utm
 
           # misc
           pkgs.mkalias
@@ -128,7 +129,7 @@
         env = pkgs.buildEnv {
           name = "system-applications";
           paths = config.environment.systemPackages;
-          pathsToLink = "/Applications";
+          pathsToLink = ["/Applications"];
         };
       in
         pkgs.lib.mkForce ''

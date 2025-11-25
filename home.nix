@@ -11,10 +11,10 @@ in
     home.file.".config/zed/keymap.json".source = "${files}/zed/keymap.json";
     programs.git = {
       enable = true;
-      userName  = "yannic rieger";
-      userEmail = "ybr@76k.io";
       lfs.enable = true;
-      extraConfig = {
+      settings = {
+        user.name  = "yannic rieger";
+        user.email = "ybr@76k.io";
         commit.gpgsign = true;
         # yubikey 29-124-674
         user.signingkey = "A4F2D129FCD88C5EFB6D64767FF0A945E1587BF4";
@@ -39,7 +39,7 @@ in
     programs.direnv = {
       enable = true;
       enableZshIntegration = true;
-    };
+      };
     programs.zsh = {
       enable = true;
       oh-my-zsh = {
