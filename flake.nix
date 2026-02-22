@@ -72,12 +72,12 @@
           pkgs.aptly
 
           # langs
-          pkgs.go_1_25
+          pkgs.go_1_26
           pkgs.luajit
 
           # gui apps
           pkgs.jetbrains.goland
-          pkgs.jetbrains.idea-community
+          pkgs.jetbrains.idea
           pkgs.alacritty
           pkgs.wireshark
           pkgs.obsidian
@@ -86,6 +86,9 @@
           # misc
           pkgs.mkalias
           pkgs.oh-my-zsh
+
+          # audio
+          pkgs.blackhole
         ];
 
       homebrew = {
@@ -111,8 +114,8 @@
           "postico"
         ];
         masApps = {
-          "Magnet" = 441258766;
-          "Tailscale" = 1475387142;
+          #"Magnet" = 441258766;
+          #"Tailscale" = 1475387142;
         };
       };
 
