@@ -70,14 +70,14 @@
           pkgs.luajitPackages.luarocks
           pkgs.gradle
           pkgs.aptly
+          pkgs.awscli2
 
           # langs
           pkgs.go_1_26
           pkgs.luajit
 
           # gui apps
-          pkgs.jetbrains.goland
-          pkgs.jetbrains.idea
+          pkgs.jetbrains-toolbox
           pkgs.alacritty
           pkgs.wireshark
           pkgs.obsidian
