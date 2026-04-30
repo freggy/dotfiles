@@ -112,6 +112,7 @@
           "discord"
           "zed"
           "postico"
+          "headlamp"
         ];
         masApps = {
           #"Magnet" = 441258766;
