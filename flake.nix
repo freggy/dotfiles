@@ -57,7 +57,7 @@
           pkgs.colima
           pkgs.docker
           pkgs.golangci-lint
-          pkgs.ffmpeg-full
+          pkgs.ffmpeg
           pkgs.dbmate
           pkgs.sqlc
           pkgs.postgresql
@@ -71,6 +71,7 @@
           pkgs.gradle
           pkgs.aptly
           pkgs.awscli2
+          pkgs.maven
 
           # langs
           pkgs.go_1_26
