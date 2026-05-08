@@ -72,6 +72,7 @@
           pkgs.aptly
           pkgs.awscli2
           pkgs.maven
+          pkgs.goreleaser
 
           # langs
           pkgs.go_1_26
