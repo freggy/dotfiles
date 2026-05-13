@@ -60,6 +60,7 @@ in
         gdc = "git diff --cached";
         gce = "git commit -v --edit";
         xc = "limactl shell xcomp";
+        bcv = "bump_calver";
       };
       initContent = ''
         export GOROOT=$(go env GOROOT)
@@ -77,6 +78,20 @@ in
         bindkey -e
         bindkey '^[[1;3C' forward-word
         bindkey '^[[1;3D' backward-word
+
+        bump_calver() {
+          local prev="$1"
+          local year week release
+
+          year=$(date +%Y)
+          week=$(date +%V)
+          release=$(echo "$prev" | awk -F. -v y="$year" -v w="$week" '
+            $1==y && $2==w { print $3+1; exit }
+            { print 1 }
+          ')
+
+          echo -n "$year.$week.$release"
+        }
 
         if [ "$TMUX" = "" ]; then tmux; fi
       '';
